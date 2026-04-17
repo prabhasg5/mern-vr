@@ -22,7 +22,16 @@ function Home() {
   };
 
   const addToCart = async (id) => {
-    
+    API.post("/cart/add",{productId:id})
+      .then((res)=>{
+        if(res.status==201){
+          alert("Added to cart")
+          navigate("/cart")
+        }
+      })
+      .catch((err)=>{
+        console.log(err)
+      })
   };
 
   return (
